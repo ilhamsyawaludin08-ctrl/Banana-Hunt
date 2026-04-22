@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Banana Hunt/Scenes/settings.unity
     guid: 516a70a08fcc4684a9d25c0c0fdc317d
+  - enabled: 1
+    path: Assets/Banana Hunt/Scenes/Gameplay.unity
+    guid: ff4d6d5ca3361ed45a1ff6d0e0db915b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
