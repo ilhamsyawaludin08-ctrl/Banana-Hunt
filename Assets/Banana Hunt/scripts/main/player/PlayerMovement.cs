@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check")]
     public Transform groundCheck;
-    public float checkRadius = 0.3f;
+    public float checkRadius = 0.6f; // 🔥 dibesarin biar ke-detect
     public LayerMask groundLayer;
 
     private Rigidbody2D rb;
@@ -25,31 +25,23 @@ public class PlayerMovement : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+        Debug.Log(isGrounded);
 
-        // 🔥 FIX ANIMASI
+        // Animasi
         float animSpeed = Mathf.Abs(move);
-
-        if (animSpeed < 0.1f)
-        {
-            animSpeed = 0f;
-        }
-
+        if (animSpeed < 0.1f) animSpeed = 0f;
         anim.SetFloat("Speed", animSpeed);
 
-        // 🔥 FLIP
+        // Flip
         Vector3 scale = transform.localScale;
-
-        if (move > 0)
-            scale.x = -Mathf.Abs(scale.x);
-        else if (move < 0)
-            scale.x = Mathf.Abs(scale.x);
-
+        if (move > 0) scale.x = -Mathf.Abs(scale.x);
+        else if (move < 0) scale.x = Mathf.Abs(scale.x);
         transform.localScale = scale;
 
-        // Ground check
+        // 🔥 GROUND CHECK (WAJIB ADA)
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
-        // Lompat (pakai grounded)
+        // 🔥 LOMPAT FIX (ANTI TERBANG)
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
