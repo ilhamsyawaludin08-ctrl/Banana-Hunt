@@ -8,12 +8,15 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check")]
     public Transform groundCheck;
-    public float checkRadius = 0.6f; // 🔥 dibesarin biar ke-detect
+    public float checkRadius = 0.6f;
     public LayerMask groundLayer;
 
     private Rigidbody2D rb;
     private Animator anim;
     private bool isGrounded;
+
+    // 🔥 TAMBAHAN (UNTUK CEK GAMEOVER BENER ATAU ENGGA)
+    public GameObject gameOver;
 
     void Start()
     {
@@ -25,7 +28,15 @@ public class PlayerMovement : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+
+        // ❗ DEBUG GROUND (punyamu tetap)
         Debug.Log(isGrounded);
+
+        // 🔥 DEBUG GAMEOVER (BARU)
+        if (gameOver != null)
+        {
+            Debug.Log("GameOver state: " + gameOver.activeSelf);
+        }
 
         // Animasi
         float animSpeed = Mathf.Abs(move);
@@ -38,10 +49,10 @@ public class PlayerMovement : MonoBehaviour
         else if (move < 0) scale.x = Mathf.Abs(scale.x);
         transform.localScale = scale;
 
-        // 🔥 GROUND CHECK (WAJIB ADA)
+        // Ground check
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
-        // 🔥 LOMPAT FIX (ANTI TERBANG)
+        // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
