@@ -6,14 +6,20 @@ public class PlayerDamage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        HealthSystem health = FindObjectOfType<HealthSystem>();
+
+        if (health == null) return;
+
+        // Kena musuh = damage 20
         if (other.CompareTag("Enemy"))
         {
-            HealthSystem health = FindObjectOfType<HealthSystem>();
+            health.TakeDamage(damageAmount);
+        }
 
-            if (health != null)
-            {
-                health.TakeDamage(damageAmount);
-            }
+        // Kena air = langsung mati
+        if (other.CompareTag("Water"))
+        {
+            health.TakeDamage(999);
         }
     }
 }
