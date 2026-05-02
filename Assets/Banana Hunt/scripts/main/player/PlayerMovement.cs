@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private bool isGrounded;
 
-    // 🔥 TAMBAHAN (UNTUK CEK GAMEOVER BENER ATAU ENGGA)
     public GameObject gameOver;
 
     void Start()
@@ -26,36 +25,48 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Ground check dulu
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            checkRadius,
+            groundLayer
+        );
+
+        // Movement
         float move = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
-
-        // ❗ DEBUG GROUND (punyamu tetap)
-        Debug.Log(isGrounded);
-
-        // 🔥 DEBUG GAMEOVER (BARU)
-        if (gameOver != null)
-        {
-            Debug.Log("GameOver state: " + gameOver.activeSelf);
-        }
-
-        // Animasi
-        float animSpeed = Mathf.Abs(move);
-        if (animSpeed < 0.1f) animSpeed = 0f;
-        anim.SetFloat("Speed", animSpeed);
-
-        // Flip
-        Vector3 scale = transform.localScale;
-        if (move > 0) scale.x = -Mathf.Abs(scale.x);
-        else if (move < 0) scale.x = Mathf.Abs(scale.x);
-        transform.localScale = scale;
-
-        // Ground check
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+
+        // Animasi jalan / idle
+        float animSpeed = Mathf.Abs(move);
+        if (animSpeed < 0.1f) animSpeed = 0f;
+
+        anim.SetFloat("Speed", animSpeed);
+
+        // Animasi jump
+        anim.SetBool("IsJumping", !isGrounded);
+
+        // Flip karakter
+        Vector3 scale = transform.localScale;
+
+        if (move > 0)
+            scale.x = -Mathf.Abs(scale.x);
+        else if (move < 0)
+            scale.x = Mathf.Abs(scale.x);
+
+        transform.localScale = scale;
+
+        // Debug (boleh dihapus nanti)
+        Debug.Log(isGrounded);
+
+        if (gameOver != null)
+        {
+            Debug.Log("GameOver state: " + gameOver.activeSelf);
         }
     }
 
