@@ -10,10 +10,15 @@ public class HealthSystem : MonoBehaviour
 
     public GameObject gameOver;
 
+    private PlayerHitEffect playerHitEffect;
+
+
     void Start()
     {
         currentHealth = maxHealth;
         UpdateHealth();
+
+        playerHitEffect = GetComponent<PlayerHitEffect>();
 
         // 🔥 pastikan GameOver benar-benar mati di awal
         if (gameOver != null)
@@ -43,6 +48,11 @@ public class HealthSystem : MonoBehaviour
             UpdateHealth();
             GameOver();
             return;
+        }
+
+          if (playerHitEffect != null)
+        {
+            playerHitEffect.PlayHitEffect();
         }
 
         UpdateHealth();
