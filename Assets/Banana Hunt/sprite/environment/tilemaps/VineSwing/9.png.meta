@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 50
@@ -104,11 +104,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 123
-        y: 155
+        y: 101
         width: 82
-        height: 101
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 155
+      alignment: 9
+      pivot: {x: 0.054181356, y: 0.97738403}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f5c095be6a20b04498609a0a5d6ef45c
     internalID: 0
     vertices: []
     indices: 
