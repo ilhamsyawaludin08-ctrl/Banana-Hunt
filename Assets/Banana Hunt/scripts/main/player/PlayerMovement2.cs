@@ -14,11 +14,11 @@ public class PlayerMovement2 : MonoBehaviour
     public Animator anim;
 
     [Header("Animation Names")]
-    public string idleAnimationName = "Player_Idle";
-    public string runAnimationName = "Player_Run";
-    public string jumpAnimationName = "Player_Jump";
-    public string fallAnimationName = "Player_Fall";
-    public string grappleAnimationName = "Player_Grapple";
+    public string idleAnimationName = "IdleAnim";
+    public string runAnimationName = "Run";
+    public string jumpAnimationName = "JumpAnim";
+    public string fallAnimationName = "JumpAnim";
+    public string grappleAnimationName = "HangAnim";
 
     private string currentAnimationName;
 
@@ -114,12 +114,10 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void Move()
     {
-        // Visual tetap boleh berubah, walaupun movement sedang dikunci.
         UpdatePlayerFacingVisual();
 
         if (isGrappling) return;
 
-        // Saat momentum grapple aktif, input horizontal tidak boleh menimpa velocity grapple.
         if (IsGrappleMomentumActive())
         {
             return;
@@ -135,13 +133,29 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void UpdatePlayerFacingVisual()
     {
-        if (isFacingRight)
+        if (isGrappling)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            // Khusus saat Hang/Grapple, arah sprite dibalik
+            if (isFacingRight)
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            // Untuk Idle, Run, dan Jump, arah tetap normal
+            if (isFacingRight)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
         }
     }
 
@@ -337,33 +351,38 @@ public class PlayerMovement2 : MonoBehaviour
         if (anim == null) return;
 
         bool groundedNow = IsGrounded();
-        anim.SetBool("IsJumping", !IsGrounded());
-        Debug.Log("Grounded sekarang: " + groundedNow);
+
+        float animSpeed = Mathf.Abs(horizontalInput);
+
+        if (animSpeed < 0.1f)
+        {
+            animSpeed = 0f;
+        }
+
+        anim.SetFloat("Speed", animSpeed);
 
         if (isGrappling)
         {
-            //ChangeAnimationState(grappleAnimationName);
+            anim.SetBool("IsJumping", false);
+            ChangeAnimationState(grappleAnimationName);
+            return;
         }
-        else if (!groundedNow && rb.linearVelocity.y > 0.1f)
+
+        anim.SetBool("IsJumping", !groundedNow);
+
+        if (!groundedNow)
         {
-            //ChangeAnimationState(jumpAnimationName);
-     
+            ChangeAnimationState(jumpAnimationName);
+            return;
         }
-        else if (!groundedNow && rb.linearVelocity.y < -0.1f)
+
+        if (animSpeed > 0f)
         {
-            //ChangeAnimationState(fallAnimationName);
-            
+            ChangeAnimationState(runAnimationName);
+            return;
         }
-        
-        else if (Mathf.Abs(horizontalInput) > 0)
-        {
-            //ChangeAnimationState(runAnimationName);
-            anim.SetFloat("Speed", horizontalInput);
-        }
-        else
-        {
-            //ChangeAnimationState(idleAnimationName);
-        }
+
+        ChangeAnimationState(idleAnimationName);
     }
 
     private void ChangeAnimationState(string newAnimationName)

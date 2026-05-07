@@ -987,6 +987,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1956747996}
     m_Modifications:
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326933010472022935, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 221.31
@@ -2006,6 +2018,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1956747996}
     m_Modifications:
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326933010472022935, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 49.37
@@ -9436,11 +9460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement2
   anim: {fileID: 524542578}
-  idleAnimationName: Player_Idle
-  runAnimationName: Player_Run
-  jumpAnimationName: Player_Jump
-  fallAnimationName: Player_Fall
-  grappleAnimationName: Player_Grapple
+  idleAnimationName: IdleAnim
+  runAnimationName: Run
+  jumpAnimationName: JumpAnim
+  fallAnimationName: JumpAnim
+  grappleAnimationName: HangAnim
   moveSpeed: 6
   jumpForce: 10
   maxCoyoteTime: 0.5
@@ -10537,6 +10561,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1956747996}
     m_Modifications:
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326933010472022935, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 159.35
@@ -11787,6 +11823,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1956747996}
     m_Modifications:
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326933010472022935, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 155.4
@@ -94115,6 +94163,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1956747996}
     m_Modifications:
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326933010472022935, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 338.39
@@ -100195,6 +100255,7 @@ GameObject:
   - component: {fileID: 1544746679}
   - component: {fileID: 1544746678}
   - component: {fileID: 1544746680}
+  - component: {fileID: 1544746681}
   m_Layer: 0
   m_Name: Water
   m_TagString: Water
@@ -101463,6 +101524,23 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1544746681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544746676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f15ed2e8e72ea4dbc1d03c83bbd771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageTrap
+  damage: 999
+  knockbackDirection: {x: 0, y: 1}
+  knockbackForce: 10
+  knockbackDuration: 0.25
+  damageCooldown: 0.5
 --- !u!1 &1559608460
 GameObject:
   m_ObjectHideFlags: 0
@@ -105351,6 +105429,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1956747996}
     m_Modifications:
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326933010472022935, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 105.3
@@ -106512,6 +106602,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1956747996}
     m_Modifications:
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326933010472022935, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 195.38
@@ -109295,6 +109397,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1956747996}
     m_Modifications:
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 239280712662181882, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326933010472022935, guid: f9130807127a6bc4c9cfa7ef2f97c5fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 303.32

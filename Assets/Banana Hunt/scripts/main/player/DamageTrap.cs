@@ -31,6 +31,11 @@ public class DamageTrap : MonoBehaviour
             playerKnockback.Knockback(knockbackDirection, knockbackForce, knockbackDuration);
         }
 
+          if (collision.CompareTag("Water"))
+        {
+            playerHealth.TakeDamage(999);
+        }
+
         StartCoroutine(DamageCooldownRoutine());
     }
 
