@@ -5,7 +5,7 @@ public class PlayerKnockback : MonoBehaviour
 {
     [Header("Reference")]
     private Rigidbody2D rb;
-    private PlayerMovement playerMovement;
+    private PlayerMovement2 playerMovement;
 
     [Header("State")]
     public bool isKnockbacking;
@@ -15,7 +15,7 @@ public class PlayerKnockback : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement2>();
     }
 
     public void Knockback(Vector2 direction, float force, float duration)
