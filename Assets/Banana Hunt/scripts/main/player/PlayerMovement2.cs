@@ -293,7 +293,7 @@ public class PlayerMovement2 : MonoBehaviour
         rb.gravityScale = normalGravityScale;
 
         rb.linearVelocity = new Vector2(directionX * horizontalForce, grappleUpForce);
-
+        Debug.Log("Test grqa");
         Debug.Log("[PlayerMovement] Release Grapple");
         Debug.Log("[PlayerMovement] Distance X: " + distanceX);
         Debug.Log("[PlayerMovement] Horizontal Force: " + horizontalForce);

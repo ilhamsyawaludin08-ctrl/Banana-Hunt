@@ -1,10 +1,18 @@
 using UnityEngine;
+using System.Collections;
 
 public class GrapleHook : MonoBehaviour
 {
     [Header("Grapple Points")]
     public Transform snapToThisPoint;
     public Transform centerPos;
+    
+
+    [Header("snapping cooldown")]
+    public float maxSnapCooldown = 1f;
+    public float currentSnapCooldown;
+    public bool isInSnapCooldown;
+    private BoxCollider2D grappleAreaCollider;
 
     [Header("Settings")]
     public bool autoSnapWhenTouch = true;
@@ -19,6 +27,7 @@ public class GrapleHook : MonoBehaviour
 
     private void Start()
     {
+            grappleAreaCollider = GetComponent<BoxCollider2D>();
         if (showDebug)
         {
             Debug.Log("[GrapleHook] Script aktif di object: " + gameObject.name);
@@ -48,6 +57,7 @@ public class GrapleHook : MonoBehaviour
 
     private void Update()
     {
+        checkSnapCooldown();
         if (autoSnapWhenTouch) return;
 
         if (canGrapple && playerInArea != null && Input.GetKeyDown(grappleKey))
@@ -60,6 +70,8 @@ public class GrapleHook : MonoBehaviour
             StartPlayerGrapple();
         }
     }
+
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -143,6 +155,36 @@ public class GrapleHook : MonoBehaviour
         }
 
         playerInArea.StartGrapple(snapToThisPoint, centerPos);
+        if (!isInSnapCooldown)
+        {
+            StartCoroutine(SnapCooldown());
+        }
+    }
+
+        private IEnumerator SnapCooldown()
+        {
+            isInSnapCooldown = true;
+            currentSnapCooldown = maxSnapCooldown;
+
+            while (currentSnapCooldown > 0)
+            {
+                currentSnapCooldown -= Time.deltaTime;
+                yield return null;
+            }
+
+            isInSnapCooldown = false;
+        }
+
+        private void checkSnapCooldown()
+    {
+        if (isInSnapCooldown)
+        {
+            grappleAreaCollider.enabled = false;
+        }
+        else
+        {
+            grappleAreaCollider.enabled = true;
+        }
     }
 
     private void OnDrawGizmos()
